@@ -1,3 +1,5 @@
+const upperCaseLetters = 'QWERTYUIOPLKJHGFDSAZXCVBNM';
+
 
 var passwordLength = 0;
 var needLowerCase = true;
@@ -22,7 +24,7 @@ function writePassword() {
 function generatePassword(){
     askQuestions();
     if(validateUserInput()){
-        // prepare password
+        createPassword();
         return "preparing password";
     } else {
         return "You have entered invalid criteria to generate password";
@@ -60,4 +62,19 @@ function validateUserInput(){
     }
     console.log("User Input is " +  isValid);
     return isValid;
+}
+function createPassword (){
+    //const randomValues = new Uint32Array(passwordLength);
+    //window.crypto.getRandomValues(randomValues);
+var number;
+var password;
+    for(i = 0; i < passwordLength; i++){
+        number = Math.floor(Math.random() * upperCaseLetters.length);
+        console.log(number);
+        console.log(upperCaseLetters.charAt(number));
+        password = password + upperCaseLetters.charAt(number);
+        console.log(password);
+    }
+
+    //console.log(randomValues);
 }
