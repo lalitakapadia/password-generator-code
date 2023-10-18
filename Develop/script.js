@@ -1,10 +1,13 @@
 const upperCaseLetters = 'QWERTYUIOPLKJHGFDSAZXCVBNM';
+const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+const numbers = '0123456789';
+const specialCharacter ='#&*%$?£~';
 
 
 var passwordLength = 0;
 var needLowerCase = true;
 var needUpperCase = true;
-var neednumbers = true;
+var needNumbers = true;
 var needSpecialCharacter = true;
 
 // Assignment Code
@@ -24,8 +27,7 @@ function writePassword() {
 function generatePassword(){
     askQuestions();
     if(validateUserInput()){
-        createPassword();
-        return "preparing password";
+        return createPassword();
     } else {
         return "You have entered invalid criteria to generate password";
     }
@@ -43,8 +45,8 @@ function askQuestions(){
     needUpperCase = prompt("Do you need to include Upper case letters?", true);
     console.log(needUpperCase);
 
-    neednumbers = prompt("Do you nedd to include numbers?", true);
-    console.log(neednumbers);
+    needNumbers = prompt("Do you need to include numbers?", true);
+    console.log(needNumbers);
 
     needSpecialCharacter = prompt("Do you need special character?", true);
     console.log(needSpecialCharacter);
@@ -64,17 +66,35 @@ function validateUserInput(){
     return isValid;
 }
 function createPassword (){
-    //const randomValues = new Uint32Array(passwordLength);
-    //window.crypto.getRandomValues(randomValues);
-var number;
-var password;
+   var lettersInScope = "";
+   if (needUpperCase == "true") {
+        lettersInScope = lettersInScope + upperCaseLetters;
+   }
+
+    if (needLowerCase == "true"){
+        lettersInScope = lettersInScope + lowerCaseLetters;
+    }
+
+    if (needNumbers  == "true"){
+        lettersInScope = lettersInScope + numbers;
+    }
+  
+    if (needSpecialCharacter  == "true") {
+        lettersInScope = lettersInScope + specialCharacter;
+    }
+   
+    console.log(lettersInScope);
+    var number;
+    var password = "";
+
     for(i = 0; i < passwordLength; i++){
-        number = Math.floor(Math.random() * upperCaseLetters.length);
+        number = Math.floor(Math.random() * lettersInScope.length);
         console.log(number);
-        console.log(upperCaseLetters.charAt(number));
-        password = password + upperCaseLetters.charAt(number);
+        console.log(lettersInScope.charAt(number));
+        password = password + lettersInScope.charAt(number);
         console.log(password);
     }
+    return password;
 
     //console.log(randomValues);
 }
