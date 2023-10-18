@@ -2,7 +2,6 @@
 
 
 # Description
-
 I have developed this password generator web page using HTML, CSS and Javascript as part of challenge given in the Birmingham University Bootcamp program.
 
 It can generate a password of 8 to 128 length containing special charactors, upper case letters, lower case letters and numbers.
