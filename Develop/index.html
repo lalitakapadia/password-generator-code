@@ -14,7 +14,24 @@
       </header>
       <div class="card">
         <div class="card-header">
-          <h2>Generate a Password</h2>
+          <h2>Choose your password criteria</h2>
+        </div>
+        <div class = "slidercontainer"> 
+          <label>Password Length:</label>
+          <label for="sliderange" id="passwordlength"></label>
+          <input type="range" min="8" max="128" value="10" class ="slider" id="sliderange">
+
+          <input type="checkbox" id="uppercase" name="Uppercase" value="true">
+          <label for="uppercase">Upper Case Letters</label><br>
+
+          <input type="checkbox" id="lowercase" name="Lowercase" value="true">
+          <label for="lowercase">Lower Case Letters</label><br>
+
+          <input type="checkbox" id="numbers" name="Numbers" value="true">
+          <label for="numbers">Numbers</label><br>
+
+          <input type="checkbox" id="specialcharacter" name="Specialcharacter" value="true">
+          <label for="specialcharacter">Special Characters</label><br>
         </div>
         <div class="card-body">
           <textarea
